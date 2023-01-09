@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">projectK</string>
+    <string name="get_started">Get Started</string>
+    <string name="skip">Skip</string>
+    <string name="buttonSelectPhoto">Select Photo</string>
+    <string name="buttonTakePhoto">Start Camera</string>
+    <string name="buttonDiagnose">Detect</string>
+    <string name="defaultImage">Default image set now...</string>
+    <string name="descriptionImage">View for displaying image</string>
+    <string name="kreate">Kreate</string>
+</resources>
