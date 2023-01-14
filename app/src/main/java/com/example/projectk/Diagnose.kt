@@ -14,97 +14,87 @@ import android.provider.MediaStore.Audio.Media
 import android.view.Gravity
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.example.projectk.databinding.ActivityDiagnoseBinding
 import kotlinx.android.synthetic.main.activity_diagnose.*
 import java.io.IOException
 
 class Diagnose : AppCompatActivity() {
 
-    private lateinit var mClassifier: Classifier
-    private lateinit var mBitmap: Bitmap
+    private  var count: Int = 0
+    private lateinit var binding: ActivityDiagnoseBinding
 
-    private val mCameraRequestCode = 0
-    private val mGalleryRequestCode = 2
-
-    private val mInputSize = 224
-    private val mModelPath = "plant_disease_model.tflite"
-    private val mLabelPath = "plant_labels.txt"
-    private val mSamplePath = "soybean.JPG"
-
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        setContentView(R.layout.activity_diagnose)
-
-        mClassifier = Classifier(assets,mModelPath,mLabelPath,mInputSize)
-
-        resources.assets.open(mSamplePath).use{
-            mBitmap = BitmapFactory.decodeStream(it)
-            mBitmap = Bitmap.createScaledBitmap(mBitmap, mInputSize, mInputSize, true)
-            image_preview.setImageBitmap(mBitmap)
+        binding = ActivityDiagnoseBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+//        val intent = getIntent()
+        binding.cotton.setOnClickListener {
+            count = 1
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Cotton", "cotton")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+        binding.corn.setOnClickListener {
+            count = 1
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Corn", "corn")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+        binding.potato.setOnClickListener {
+            count = 2
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Potato", "potato")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+        binding.grape.setOnClickListener {
+            count = 3
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Grape", "grape")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+        binding.banana.setOnClickListener {
+            count = 4
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Tomato", "tomato")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+        binding.bell.setOnClickListener {
+            count = 5
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Bell", "bell")
+            intent.putExtra("Count",count)
+            startActivity(intent)
         }
 
-        camera_btn.setOnClickListener {
-            val  callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(callCameraIntent,mCameraRequestCode)
+        binding.apple.setOnClickListener {
+            count = 6
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Apple", "apple")
+            intent.putExtra("Count",count)
+            startActivity(intent)
         }
+//       storage.setOnClickListener {
+//    val intent=Intent(Intent.ACTION_PICK)
+//    intent.type="image/*"
+//    startActivityForResult(intent,0)
+//}
+//
+//    }
+//    var selected: Uri?=null
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if(requestCode==0&&resultCode== Activity.RESULT_OK&&data!=null){
+//            selected=data.data
+//            val bitmap= MediaStore.Images.Media.getBitmap(contentResolver,selected)
+//            cicle_image.setImageBitmap(bitmap)
+//            select.alpha=0F
+//        }
+//    }
 
-        gallery_btn.setOnClickListener {
-            val callGalleryIntent = Intent(Intent.ACTION_PICK)
-            callGalleryIntent.type = "image/*"
-            startActivityForResult(callGalleryIntent,mGalleryRequestCode)
-        }
-
-        detect_btn.setOnClickListener {
-            val results = mClassifier.recognizeImage(mBitmap).firstOrNull()
-            result_preview.text = results?.title+"\n Confidence:"+results?.confidence
-        }
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == mCameraRequestCode){
-            if(resultCode == Activity.RESULT_OK && data != null) {
-                mBitmap = data.extras!!.get("data") as Bitmap
-                mBitmap = scaleImage(mBitmap)
-                val toast = Toast.makeText(this, ("Image crop to: w= ${mBitmap.width} h= ${mBitmap.height}"), Toast.LENGTH_LONG)
-                toast.setGravity(Gravity.BOTTOM, 0, 20)
-                toast.show()
-                image_preview.setImageBitmap(mBitmap)
-                result_preview.text= "Your photo image set now."
-            } else {
-                Toast.makeText(this, "Camera cancel..", Toast.LENGTH_LONG).show()
-            }
-        } else if(requestCode == mGalleryRequestCode) {
-            if (data != null) {
-                val uri = data.data
-
-                try {
-                    mBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-
-                println("Success!!!")
-                mBitmap = scaleImage(mBitmap)
-                image_preview.setImageBitmap(mBitmap)
-
-            }
-        } else {
-            Toast.makeText(this, "Unrecognized request code", Toast.LENGTH_LONG).show()
-
-        }
-    }
-
-    fun scaleImage(bitmap: Bitmap?): Bitmap {
-        val orignalWidth = bitmap!!.width
-        val originalHeight = bitmap.height
-        val scaleWidth = mInputSize.toFloat() / orignalWidth
-        val scaleHeight = mInputSize.toFloat() / originalHeight
-        val matrix = Matrix()
-        matrix.postScale(scaleWidth, scaleHeight)
-        return Bitmap.createBitmap(bitmap, 0, 0, orignalWidth, originalHeight, matrix, true)
-    }
-
-
 }

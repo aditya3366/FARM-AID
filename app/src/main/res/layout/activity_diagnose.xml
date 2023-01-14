@@ -5,163 +5,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Diagnose">
+    tools:context=".Diagnose"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_bar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/card_color"
-        android:id="@+id/header_bar"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/sideMenu"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:backgroundTint="@color/card_color"
-            android:contentDescription="Side Menu"
             android:clickable="true"
+            android:contentDescription="Side Menu"
             android:src="@drawable/ic_round_menu_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
         <TextView
             android:id="@+id/text_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:fontFamily="@font/sansation_regular"
             android:text="@string/kreate"
-            android:textAlignment="center"
             android:textColor="@color/customBlack"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Heal Your Crop"
-        android:textSize="16sp"
-        android:fontFamily="@font/sansation_bold"
-        android:textColor="@color/customBlack"/>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        >
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/camera_btn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/customBlack"
-            android:elevation="5dp"
-            android:fontFamily="@font/sansation_regular"
-            android:text="Camera"
-            app:cornerRadius="20dp"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/gallery_btn"
-            app:cornerRadius="20dp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/customBlack"
-            android:elevation="5dp"
-            android:fontFamily="@font/sansation_regular"
-            android:text="Gallery"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            tools:layout_editor_absoluteX="320dp"
+            tools:layout_editor_absoluteY="14dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <ImageView
-        android:id="@+id/image_preview"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/ic_round_photo_24"
-        android:background="@drawable/card_background"
+        android:layout_height="match_parent">
+
+    <LinearLayout
         android:elevation="2dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-
-        />
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/card_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/detect_btn"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/customBlack"
-            android:elevation="5dp"
-            android:fontFamily="@font/sansation_regular"
-            android:text="Detect"
-            app:cornerRadius="20dp"
-            android:textSize="18sp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp">
-        <TextView
-            android:id="@+id/result_preview"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/card_background"
-            android:textColor="@color/customBlack"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:elevation="2dp"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cotton"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            android:text="Cotton Leaf"
+            android:textAllCaps="false"
+             />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/corn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            android:text="Corn Leaf"
+            android:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/potato"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            android:text="Potato Leaf"
+            android:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/grape"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            android:text="Grape Leaf"
+            android:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/banana"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            android:text="Banana Leaf"
+            android:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bell"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            android:text="Bell pepper"
+            android:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/apple"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            android:text="Apple Leaf"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

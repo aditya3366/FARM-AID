@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DiagnoseCamera">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/card_color"
+        android:elevation="5dp"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/sideMenu"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/card_color"
+            android:clickable="true"
+            android:contentDescription="Side Menu"
+            android:src="@drawable/ic_round_menu_24"
+            />
+
+        <TextView
+            android:id="@+id/text_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sansation_regular"
+            android:text="@string/kreate"
+            android:textColor="@color/customBlack"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            tools:layout_editor_absoluteX="320dp"
+            tools:layout_editor_absoluteY="14dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:textColor="@color/customBlack"
+            android:lineHeight="36px"
+            android:text="Scan the leaf"
+            android:fontFamily="@font/sansation_regular"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/camera"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="28dp"
+            android:text="camera selection"
+            android:lines="1"
+            android:visibility="invisible"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scan"
+            />
+
+
+        <ImageView
+            android:id="@+id/leaf_image"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:background="@drawable/card_background"
+            app:layout_constraintBottom_toBottomOf="@+id/camera"
+            app:layout_constraintEnd_toEndOf="@+id/camera"
+            app:layout_constraintStart_toStartOf="@+id/camera"
+            app:layout_constraintTop_toTopOf="@+id/camera"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/camera"
+            app:layout_constraintStart_toStartOf="@+id/camera"
+            app:layout_constraintTop_toBottomOf="@id/camera"
+            >
+            <ImageView
+                android:id="@+id/cameraImg"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/camera"/>
+            <ImageView
+                android:id="@+id/galleryImg"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/gallery"/>
+
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/predict"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customblack_card"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/ll1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:enabled="false"
+            android:text="predict"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
