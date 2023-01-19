@@ -126,7 +126,6 @@ class DiagnoseCamera : AppCompatActivity() {
                 PackageManager.PERMISSION_GRANTED){
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA),
                     200)
-                openCameraForResult(110)
             }else{
                 //code for camera
                 openCameraForResult(110)

@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+   <data>
 
-    </data>
+   </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,11 +43,13 @@
             </EditText>
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
                 android:id="@+id/current_location"
                 android:src="@drawable/ic_round_my_location_24"
                 android:layout_marginEnd="16dp"
+                android:contentDescription="Current Location"
                 android:background="?selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true">
@@ -69,40 +71,40 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="230dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:orientation="vertical">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/date_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:fontFamily="@font/sansation_regular"
-                    android:textSize="15sp"
-                    android:textColor="@color/customBlack">
+                    android:text="Time"
+                    android:textColor="@color/customBlack"
+                    android:textSize="15sp">
 
                 </TextView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginRight="16dp"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
                     android:padding="5dp">
 
                     <TextView
                         android:id="@+id/min_temp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Min Temp"
-                        android:fontFamily="@font/sansation_regular"
                         android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/sansation_regular"
+                        android:text="Min Temp"
                         android:textColor="@color/customBlack">
 
                     </TextView>
@@ -111,9 +113,9 @@
                         android:id="@+id/max_temp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Max Temp"
-                        android:fontFamily="@font/sansation_regular"
                         android:layout_marginStart="25dp"
+                        android:fontFamily="@font/sansation_regular"
+                        android:text="Max Temp"
                         android:textColor="@color/customBlack">
 
                     </TextView>
@@ -130,21 +132,21 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:gravity="center"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginStart="25dp"
-                        android:gravity="center">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
                             android:id="@+id/temp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12"
                             android:fontFamily="@font/sansation_regular"
-                            android:textSize="85sp"
-                            android:textColor="@color/customBlack">
+                            android:text="12"
+                            android:textColor="@color/customBlack"
+                            android:textSize="70sp">
 
 
                         </TextView>
@@ -153,9 +155,9 @@
                             android:id="@+id/feels_like"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Feels Like"
                             android:layout_margin="5dp"
                             android:fontFamily="@font/sansation_regular"
+                            android:text="Feels Like"
                             android:textColor="@color/customBlack">
 
                         </TextView>
@@ -165,20 +167,20 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="25dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="25dp"
-                        android:gravity="center">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:id="@+id/weather_img"
-                            android:layout_width="125dp"
-                            android:layout_height="125dp"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
                             android:layout_gravity="center_vertical"
-                            android:src="@drawable/ic_launcher_foreground"
-                            android:scaleType="fitXY">
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_launcher_foreground">
 
                         </ImageView>
 
@@ -188,11 +190,11 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:fontFamily="@font/sansation_regular"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="Weather"
+                            android:textColor="@color/customBlack"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            android:text="Weather"
-                            android:textColor="@color/customBlack">
+                            app:layout_constraintTop_toTopOf="parent">
 
                         </TextView>
 
