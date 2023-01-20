@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.projectk.Diagnose
 import com.example.projectk.R
+import com.example.projectk.Weather
 import com.example.projectk.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -25,6 +26,9 @@ class HomeFragment : Fragment() {
 
         binding.diagnoseBtn.setOnClickListener {
             startActivity(Intent(requireContext(),Diagnose::class.java))
+        }
+        binding.weatherBtn.setOnClickListener {
+            startActivity(Intent(requireContext(),Weather::class.java))
         }
 
         return binding.root

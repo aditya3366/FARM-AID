@@ -36,35 +36,35 @@ class Diagnose : AppCompatActivity() {
             startActivity(intent)
         }
         binding.corn.setOnClickListener {
-            count = 1
+            count = 2
             val intent = Intent(this, DiagnoseCamera::class.java)
 //            intent.putExtra("Corn", "corn")
             intent.putExtra("Count",count)
             startActivity(intent)
         }
         binding.potato.setOnClickListener {
-            count = 2
+            count = 3
             val intent = Intent(this, DiagnoseCamera::class.java)
 //            intent.putExtra("Potato", "potato")
             intent.putExtra("Count",count)
             startActivity(intent)
         }
         binding.grape.setOnClickListener {
-            count = 3
+            count = 4
             val intent = Intent(this, DiagnoseCamera::class.java)
 //            intent.putExtra("Grape", "grape")
             intent.putExtra("Count",count)
             startActivity(intent)
         }
         binding.banana.setOnClickListener {
-            count = 4
+            count = 5
             val intent = Intent(this, DiagnoseCamera::class.java)
 //            intent.putExtra("Tomato", "tomato")
             intent.putExtra("Count",count)
             startActivity(intent)
         }
         binding.bell.setOnClickListener {
-            count = 5
+            count = 6
             val intent = Intent(this, DiagnoseCamera::class.java)
 //            intent.putExtra("Bell", "bell")
             intent.putExtra("Count",count)
@@ -72,7 +72,7 @@ class Diagnose : AppCompatActivity() {
         }
 
         binding.apple.setOnClickListener {
-            count = 6
+            count = 7
             val intent = Intent(this, DiagnoseCamera::class.java)
 //            intent.putExtra("Apple", "apple")
             intent.putExtra("Count",count)

@@ -363,7 +363,7 @@ class Weather : AppCompatActivity() {
                     weatherImg.setImageResource(R.drawable.ic_unknown)
 
                     weatherLayout.background=ContextCompat
-                        .getDrawable(this@Weather, R.drawable.unknown_bg)
+                        .getDrawable(this@Weather, R.drawable.atmosphere_bg)
 
                     optionsLayout.background=ContextCompat
                         .getDrawable(this@Weather, R.drawable.unknown_bg)

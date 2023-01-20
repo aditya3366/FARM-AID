@@ -7,38 +7,47 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/header_bar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/card_color"
-        android:elevation="5dp"
-        tools:ignore="MissingConstraints"
-        android:orientation="horizontal">
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/topbar1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/themeColor"
+      android:elevation="3dp"
+      app:layout_constraintBottom_toTopOf="@id/resultscroll"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
 
-      <ImageButton
-          android:id="@+id/sideMenu"
-          android:layout_width="56dp"
-          android:layout_height="56dp"
-          android:backgroundTint="@color/card_color"
-          android:clickable="true"
-          android:contentDescription="Side Menu"
-          android:src="@drawable/ic_round_menu_24"
-          />
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:contentDescription="Side Menu"
+        android:src="@drawable/ic_round_menu_24" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end">
 
       <TextView
-          android:id="@+id/text_button"
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_gravity="end"
+          android:layout_marginRight="16dp"
           android:fontFamily="@font/sansation_regular"
-          android:text="@string/kreate"
+          android:text="Kreate"
           android:textColor="@color/customBlack"
-          android:textSize="25sp"
-          android:textStyle="normal"
-          tools:layout_editor_absoluteX="320dp"
-          tools:layout_editor_absoluteY="14dp" />
+          android:textSize="28sp" />
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.appcompat.widget.Toolbar>
+  <androidx.core.widget.NestedScrollView
+      android:id="@+id/resultscroll"
+      android:layout_width="match_parent"
+      app:layout_constraintTop_toBottomOf="@id/topbar1"
+      android:layout_height="wrap_content">
 
   <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
@@ -46,6 +55,7 @@
       android:elevation="5dp"
       android:background="@drawable/white_card"
       android:layout_margin="16dp"
+      android:padding="10dp"
       app:layout_constraintTop_toBottomOf="@+id/header_bar"
       tools:layout_editor_absoluteX="-20dp"
       tools:layout_editor_absoluteY="68dp">
@@ -69,7 +79,7 @@
         android:id="@+id/de"
         android:layout_width="280dp"
         android:layout_height="280dp"
-        android:background="@drawable/card_background"
+        android:background="@drawable/preview"
         android:elevation="5dp"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,32 +153,52 @@
           android:textSize="25sp" />
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/ll1"
-        app:layout_constraintStart_toStartOf="@+id/ll1"
-        app:layout_constraintTop_toBottomOf="@id/ll1">
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll1"
+        android:layout_height="wrap_content">
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
 
-      <ImageView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:src="@drawable/camera" />
+        <Button
+            android:id="@+id/btnrescan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Rescan"
+            android:backgroundTint="@color/themeColor"
+            android:textColor="@color/customBlack"
+            android:fontFamily="@font/sansation_regular"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnHome"
+            app:layout_constraintTop_toTopOf="parent" />
 
-      <ImageView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:src="@drawable/gallery" />
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:backgroundTint="@color/themeColor"
+            android:textColor="@color/customBlack"
+            android:fontFamily="@font/sansation_regular"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnrescan"
+            app:layout_constraintTop_toTopOf="parent" />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
+
   </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

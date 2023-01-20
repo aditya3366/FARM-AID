@@ -1,11 +1,13 @@
 package com.example.projectk.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import com.example.projectk.activity.ProductDetailActivity
 import com.example.projectk.databinding.LayoutProductItemBinding
 import com.example.projectk.model.AddProductModel
 
@@ -36,7 +38,11 @@ class ProductAdapter(val context: Context,val list: ArrayList<AddProductModel>)
 
         holder.binding.button.text = data.productSp
 
-
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, ProductDetailActivity::class.java)
+            intent.putExtra("id",list[position].productId)
+            context.startActivity(intent)
+        }
 
 
 
