@@ -1,10 +1,14 @@
 package com.example.projectk
 
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.net.toUri
+import com.example.projectk.activity.ProductDetailActivity
 import com.example.projectk.databinding.ActivityDetailBinding
+import com.example.projectk.fragment.HomeFragment
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
@@ -29,5 +33,16 @@ class DetailActivity : AppCompatActivity() {
         }
         binding.label.text = result
         binding.confidency.text = confidence.toString()
+
+        binding.btnrescan.setOnClickListener{
+            val intent = Intent(this,Diagnose::class.java)
+            startActivity(intent)
+        }
+        binding.btnHome.setOnClickListener{
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
+
 }
