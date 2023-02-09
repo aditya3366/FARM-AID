@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.projectk.R
 import com.example.projectk.adapter.CategoryAdapter
@@ -14,6 +16,7 @@ import com.example.projectk.model.AddProductModel
 import com.example.projectk.model.CategoryModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_main.*
 
 class ShopFragment : Fragment() {
 
@@ -25,6 +28,7 @@ class ShopFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentShopBinding.inflate(layoutInflater)
+
         getCategories()
         getSliderImage()
         getProducts()

@@ -37,10 +37,12 @@ class DetailActivity : AppCompatActivity() {
         binding.btnrescan.setOnClickListener{
             val intent = Intent(this,Diagnose::class.java)
             startActivity(intent)
+            finish()
         }
         binding.btnHome.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
     }
