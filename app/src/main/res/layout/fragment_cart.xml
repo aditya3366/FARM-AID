@@ -70,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/checkout"
                 android:text="Check Out"
+                android:textSize="16sp"
                 android:backgroundTint="@color/themeColor"
                 android:fontFamily="@font/sansation_regular"
                 android:textAllCaps="false"
