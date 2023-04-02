@@ -40,20 +40,21 @@ class CartFragment : Fragment() {
         return binding.root
     }
 
-    private fun totalCost(data: List<ProductModel>?){
+    private fun totalCost(data: List<ProductModel>?) {
         var total = 0
         for (item in data!!){
             total += item.productSp!!.toInt()
         }
 
-        binding.textView13.text = "${data.size}"
-        binding.textView15.text = "Rs. $total"
+        binding.textView99.text = "Total item in cart is ${data.size}"
+        binding.textView98.text = "Total Cost : $total"
 
         binding.checkout.setOnClickListener{
             val intent = Intent(context, AddressActivity::class.java)
-            intent.putExtra("totalCost",total)
+            intent.putExtra("totalCost", total)
             startActivity(intent)
         }
     }
+
 
 }

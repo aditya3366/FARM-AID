@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">projectK</string>
+    <string name="app_name">FarmAid</string>
     <string name="get_started">Get Started</string>
     <string name="skip">Skip</string>
     <string name="buttonSelectPhoto">Select Photo</string>

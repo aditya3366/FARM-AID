@@ -78,6 +78,31 @@ class Diagnose : AppCompatActivity() {
             intent.putExtra("Count",count)
             startActivity(intent)
         }
+
+        binding.wheat.setOnClickListener {
+            count = 8
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Wheat", "wheat")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+
+        binding.sugarcane.setOnClickListener {
+            count = 9
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Sugarcane", "sugarcane")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+
+        binding.chili.setOnClickListener {
+            count = 10
+            val intent = Intent(this, DiagnoseCamera::class.java)
+//            intent.putExtra("Chili", "chili")
+            intent.putExtra("Count",count)
+            startActivity(intent)
+        }
+
 //       storage.setOnClickListener {
 //    val intent=Intent(Intent.ACTION_PICK)
 //    intent.type="image/*"

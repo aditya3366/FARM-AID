@@ -16,11 +16,15 @@ import androidx.core.content.ContextCompat
 import com.example.projectk.databinding.ActivityDiagnoseCameraBinding
 import com.example.projectk.ml.AppleDisease
 import com.example.projectk.ml.BananaDisease
+import com.example.projectk.ml.ChiliDisease
 import com.example.projectk.ml.CornDisease
 import com.example.projectk.ml.CottonDisease
 import com.example.projectk.ml.GrapeDisease
 import com.example.projectk.ml.PepperDisease
 import com.example.projectk.ml.PotatoDisease
+import com.example.projectk.ml.SugarcaneDisease
+import com.example.projectk.ml.WheatDisease
+import kotlinx.android.synthetic.main.activity_diagnose.*
 import kotlinx.android.synthetic.main.activity_diagnose_camera.*
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
@@ -69,6 +73,15 @@ class DiagnoseCamera : AppCompatActivity() {
         if(count==7){
             binding.scan.text="Scan the leaf of Apple"
         }
+        if(count==8){
+            binding.scan.text="Scan the leaf of Wheat"
+        }
+        if(count==9){
+            binding.scan.text="Scan the leaf of Sugarcane"
+        }
+        if(count==10){
+            binding.scan.text="Scan the leaf of Chili"
+        }
 
         predict.setOnClickListener {
             if(count==1){
@@ -91,6 +104,15 @@ class DiagnoseCamera : AppCompatActivity() {
             }
             if(count==7){
                 predictApple()
+            }
+            if(count==8){
+                predictWheat()
+            }
+            if(count==9){
+                predictSugarcane()
+            }
+            if(count==10){
+                predictChili()
             }
 
             val intent = Intent(this,DetailActivity::class.java)
@@ -466,6 +488,141 @@ class DiagnoseCamera : AppCompatActivity() {
         val classes = arrayOf("Blight", "Common_Rust", "Gray_Leaf_Spot", "Healthy")
         result = classes[maxPos]
         confidency=maxConfidence
+
+        model.close()
+    }
+
+    private fun predictWheat() {
+        var image: Bitmap = Bitmap.createScaledBitmap(bitmap,256,256,true)
+        val model = WheatDisease.newInstance(this)
+
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.FLOAT32)
+
+        val byteBuffer: ByteBuffer = ByteBuffer.allocateDirect(4 * 256 * 256 * 3)
+        byteBuffer.order(ByteOrder.nativeOrder())
+
+        val intValues = IntArray(256 * 256)
+        image.getPixels(intValues, 0, image.width, 0, 0, image.width, image.height)
+        var pixel = 0
+
+        for (i in 0 until 256) {
+            for (j in 0 until 256) {
+                val `val` = intValues[pixel++] // RGB
+                byteBuffer.putFloat((`val` shr 16 and 0xFF) * (1f / 1))
+                byteBuffer.putFloat((`val` shr 8 and 0xFF) * (1f / 1))
+                byteBuffer.putFloat((`val` and 0xFF) * (1f / 1))
+            }
+        }
+
+        inputFeature0.loadBuffer(byteBuffer)
+
+        // Runs model inference and gets result.
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+        val confidences = outputFeature0.floatArray
+
+        var maxPos = 0
+        var maxConfidence = 0f
+        for (i in confidences.indices) {
+            if (confidences[i] > maxConfidence) {
+                maxConfidence = confidences[i]
+                maxPos = i
+            }
+        }
+        val classes = arrayOf("Healthy", "septoria", "stripe_rust")
+        confidency=maxConfidence
+        result = classes[maxPos]
+
+        model.close()
+    }
+
+    private fun predictSugarcane() {
+        var image: Bitmap = Bitmap.createScaledBitmap(bitmap,256,256,true)
+        val model = SugarcaneDisease.newInstance(this)
+
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.FLOAT32)
+
+        val byteBuffer: ByteBuffer = ByteBuffer.allocateDirect(4 * 256 * 256 * 3)
+        byteBuffer.order(ByteOrder.nativeOrder())
+
+        val intValues = IntArray(256 * 256)
+        image.getPixels(intValues, 0, image.width, 0, 0, image.width, image.height)
+        var pixel = 0
+
+        for (i in 0 until 256) {
+            for (j in 0 until 256) {
+                val `val` = intValues[pixel++] // RGB
+                byteBuffer.putFloat((`val` shr 16 and 0xFF) * (1f / 1))
+                byteBuffer.putFloat((`val` shr 8 and 0xFF) * (1f / 1))
+                byteBuffer.putFloat((`val` and 0xFF) * (1f / 1))
+            }
+        }
+
+        inputFeature0.loadBuffer(byteBuffer)
+
+        // Runs model inference and gets result.
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+        val confidences = outputFeature0.floatArray
+
+        var maxPos = 0
+        var maxConfidence = 0f
+        for (i in confidences.indices) {
+            if (confidences[i] > maxConfidence) {
+                maxConfidence = confidences[i]
+                maxPos = i
+            }
+        }
+        val classes = arrayOf("Blight", "Healthy", "RedRot", "RedRust")
+        confidency=maxConfidence
+        result = classes[maxPos]
+
+        model.close()
+    }
+
+    private fun predictChili() {
+        var image: Bitmap = Bitmap.createScaledBitmap(bitmap,256,256,true)
+        val model = ChiliDisease.newInstance(this)
+
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.FLOAT32)
+
+        val byteBuffer: ByteBuffer = ByteBuffer.allocateDirect(4 * 256 * 256 * 3)
+        byteBuffer.order(ByteOrder.nativeOrder())
+
+        val intValues = IntArray(256 * 256)
+        image.getPixels(intValues, 0, image.width, 0, 0, image.width, image.height)
+        var pixel = 0
+
+        for (i in 0 until 256) {
+            for (j in 0 until 256) {
+                val `val` = intValues[pixel++] // RGB
+                byteBuffer.putFloat((`val` shr 16 and 0xFF) * (1f / 1))
+                byteBuffer.putFloat((`val` shr 8 and 0xFF) * (1f / 1))
+                byteBuffer.putFloat((`val` and 0xFF) * (1f / 1))
+            }
+        }
+
+        inputFeature0.loadBuffer(byteBuffer)
+
+        // Runs model inference and gets result.
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+        val confidences = outputFeature0.floatArray
+
+        var maxPos = 0
+        var maxConfidence = 0f
+        for (i in confidences.indices) {
+            if (confidences[i] > maxConfidence) {
+                maxConfidence = confidences[i]
+                maxPos = i
+            }
+        }
+        val classes = arrayOf("healthy", "leaf curl", "leaf spot", "whitefly","yellowish")
+        confidency=maxConfidence
+        result = classes[maxPos]
 
         model.close()
     }

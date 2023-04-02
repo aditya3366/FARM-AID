@@ -27,6 +27,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
         val preference = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
+
         if (preference.getBoolean("isCart", false)){
             findNavController().navigate(R.id.action_homeFragment_to_cartFragment)
         }
