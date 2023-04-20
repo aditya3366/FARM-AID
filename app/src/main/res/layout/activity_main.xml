@@ -145,8 +145,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:clickable="true"
             android:contentDescription="Side Menu"
             android:src="@drawable/ic_round_menu_24" />
@@ -162,7 +162,7 @@
                 android:layout_gravity="end"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/sansation_regular"
-                android:text="Kreate"
+                android:text="@string/app_name"
                 android:textColor="@color/customBlack"
                 android:textSize="28sp" />
         </LinearLayout>
