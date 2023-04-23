@@ -21,7 +21,7 @@
             android:layout_height="42dp"
             android:clickable="true"
             android:contentDescription="Side Menu"
-            android:src="@drawable/ic_round_menu_24" />
+            android:src="@drawable/newlogo" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -124,19 +124,20 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-            <TextView
+            <Button
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Add to Cart"
                 android:padding="12dp"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:textSize="18sp"
+                app:strokeColor="@color/themeColor"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/sansation_regular"
                 android:textStyle="bold"
                 android:textColor="@color/customBlack"
                 android:gravity="center"
-                android:background="@drawable/themecard"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

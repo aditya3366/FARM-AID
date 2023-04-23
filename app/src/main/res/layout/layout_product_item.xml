@@ -98,7 +98,7 @@
                 android:backgroundTint="@color/themeColor"
                 android:elevation="5dp"
                 android:fontFamily="@font/sansation_regular"
-                android:text="Button"
+                android:text="Wishlist"
                 android:textColor="@color/customBlack"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button"

@@ -29,11 +29,6 @@
         tools:layout="@layout/fragment_shop" >
     </fragment>
     <fragment
-        android:id="@+id/communityFragment"
-        android:name="com.example.projectk.fragment.CommunityFragment"
-        android:label="fragment_community"
-        tools:layout="@layout/fragment_community" />
-    <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.projectk.fragment.CartFragment"
         android:label="fragment_cart"

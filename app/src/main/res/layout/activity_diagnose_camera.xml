@@ -23,7 +23,7 @@
             android:layout_height="42dp"
             android:clickable="true"
             android:contentDescription="Side Menu"
-            android:src="@drawable/ic_round_menu_24" />
+            android:src="@drawable/newlogo" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -130,17 +130,19 @@
 
                 </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatButton
+                <Button
                     android:id="@+id/predict"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/themecard"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:textSize="18sp"
+                    app:strokeColor="@color/themeColor"
                     android:fontFamily="@font/sansation_regular"
                     android:enabled="false"
-                    android:text="predict"
+                    android:text="Predict"
                     android:textColor="@color/customBlack"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

@@ -5,10 +5,6 @@
         android:title="Home"
         android:icon="@drawable/home"/>
 
-    <item android:id="@+id/communityFragment"
-        android:title="We"
-        android:icon="@drawable/community"/>
-
     <item android:id="@+id/shopFragment"
         android:title="Shop"
         android:icon="@drawable/shop"/>
