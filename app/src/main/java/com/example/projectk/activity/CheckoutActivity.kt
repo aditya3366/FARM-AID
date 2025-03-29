@@ -42,15 +42,8 @@ class CheckoutActivity : AppCompatActivity(), PaymentResultListener {
             options.put("currency","INR")
             options.put("amount",(price!!.toInt()*100))
 
-            val emails = arrayOf("adityadas3366@gmail.com", "parikshitzanpure27609@gmail.com")
-            val contacts = arrayOf("9657323366", "9529968659")
-
-            // Randomly select one email and one contact
-            val selectedEmail = emails[Random.nextInt(emails.size)]
-            val selectedContact = contacts[Random.nextInt(contacts.size)]
-
-            options.put("email", selectedEmail)
-            options.put("contact", selectedContact)
+            options.put("email","adityadas3366@gmail.com")
+            options.put("contact","9657323366")
 
             checkout.open(this, options)
         }catch (e: Exception){
