@@ -1,15 +1,13 @@
-name: Android Build & Release
+name: Build Android APK
 
 on:
   push:
     branches:
       - main
-  release:
-    types: [published]
 
 jobs:
   build:
-    name: Build APK
+
     runs-on: ubuntu-latest
 
     steps:
@@ -25,17 +23,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew assembleDebug
+      - name: Build release APK
+        run: ./gradlew assembleRelease
 
-      - name: Upload Debug APK as Artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
         with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: app-release.apk
+          path: app/build/outputs/apk/release/app-release.apk
 
-      - name: Upload to Release (if tagged)
-        if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v1
-        with:
-          files: app/build/outputs/apk/debug/app-debug.apk
