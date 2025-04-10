@@ -1,6 +1,6 @@
 # FarmAid
 
-## Introduction
+## Introduction of FarmAid
 The FarmAid Farming Marketplace App is a mobile application designed to provide farmers with a platform to purchase all of their agricultural requirements, such as seeds, pesticides, machinery, and more. Additionally, the app includes a plant disease detection feature, utilizing TensorFlow technology, to help farmers diagnose and treat their crops effectively. The app also allows farmers to sell agricultural products directly to consumers, such as fruits, vegetables, and more. The app is integrated with Razorpay payment gateway to provide secure payment transactions. The app also utilizes an OpenAPI to provide weather information to farmers.
 
 ## Features
