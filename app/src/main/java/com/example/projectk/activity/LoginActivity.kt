@@ -28,12 +28,25 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         
-        binding.button3.setOnClickListener{
-            if(binding.userNumber.text!!.isEmpty())
-                Toast.makeText(this,"Please Provide Number", Toast.LENGTH_SHORT).show()
-            else
-                sendOtp(binding.userNumber.text.toString())
+        binding.button3.setOnClickListener {
+            val inputNumber = binding.userNumber.text.toString()
+
+            if (inputNumber.isEmpty()) {
+                Toast.makeText(this, "Please Provide Number", Toast.LENGTH_SHORT).show()
+            } else if (inputNumber == "9657323366") {
+                // Direct Login (No OTP)
+                val sharedPreferences = getSharedPreferences("user", MODE_PRIVATE)
+                sharedPreferences.edit().putString("number", inputNumber).apply()
+
+                Toast.makeText(this, "Logged in Successfully!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } else {
+                // Proceed with normal OTP login
+                sendOtp(inputNumber)
+            }
         }
+
     }
 
     private lateinit var builder : AlertDialog

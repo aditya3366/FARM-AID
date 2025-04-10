@@ -32,23 +32,26 @@ class CheckoutActivity : AppCompatActivity(), PaymentResultListener {
 
         val price = intent.getStringExtra("totalCost")
 
+        val preference = this.getSharedPreferences("user", MODE_PRIVATE)
+        val contactNumber = preference.getString("number", "")
+
         try {
             val options = JSONObject()
-            options.put("name","FarmAid Corp")
-            options.put("description","Product Charges")
-            //You can omit the image option to fetch the image from the dashboard
-            options.put("image","https://s3.amazonaws.com/rzp-mobile/images/rzp.jpg")
+            options.put("name", "FarmAid Corp")
+            options.put("description", "Product Charges")
+            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.jpg")
             options.put("theme.color", "#52B788")
-            options.put("currency","INR")
-            options.put("amount",(price!!.toInt()*100))
+            options.put("currency", "INR")
+            options.put("amount", (price!!.toInt() * 100))
 
-            options.put("email","adityadas3366@gmail.com")
-            options.put("contact","9657323366")
+            options.put("email", "test@example.com") // Replace with actual user email if needed
+            options.put("contact", "+91$contactNumber")
 
             checkout.open(this, options)
-        }catch (e: Exception){
-            Toast.makeText(this,"Error in payment!",Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error in payment!", Toast.LENGTH_SHORT).show()
         }
+
 
     }
 
